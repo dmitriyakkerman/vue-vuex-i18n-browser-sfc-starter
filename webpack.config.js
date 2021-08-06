@@ -13,7 +13,8 @@ module.exports = {
         ]
     },
     entry: {
-        'example': ['./src/js/example/index.js']
+        'example1': ['./src/js/partial/example1/index.js'],
+        'example2': ['./src/js/partial/example2/index.js']
     },
     output: {
         path: __dirname + "/dist/js/",
