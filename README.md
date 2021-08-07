@@ -15,7 +15,101 @@ https://github.com/dmitriyakkerman/vue-vuex-i18n-browser-sfc-starter.git
 npm install
 ```
 3. Create and configure you Vue.js single file components in `src/js/partial` folder using Vuex and I18n. 
+
+```js
+// partial/greeting/Greeting.vue
+
+<template>
+    <div>
+        <h1>{{ $t("message.greeting") }}</h1>
+    </div>
+</template>
+
+<script>
+
+    export default {}
+
+</script>
+```
+
+```js
+// partial/greeting/main.js
+
+import Vue from 'vue';
+import {i18n} from "../../lang";
+
+import Greeting from "./Greeting.vue";
+
+Vue.config.productionTip = false;
+
+new Vue({
+    i18n,
+    render: h => h(Greeting),
+}).$mount('.greeting');
+```
+
+```js
+// partial/counter/Counter.vue
+
+<template>
+    <div>
+        <div>Count: {{ count }}</div>
+        <div>Double count: {{ doubleCount }}</div>
+        <button @click="increment">Increment count</button>
+    </div>
+</template>
+
+<script>
+    export default {
+        computed: {
+            count() {
+                return this.$store.state.counter.count
+            },
+            doubleCount() {
+                return this.$store.getters.doubleCount
+            }
+        },
+        methods: {
+            increment() {
+                this.$store.commit('increment')
+            }
+        }
+    }
+</script>
+```
+
+```js
+// partial/counter/main.js
+
+import Vue from 'vue';
+import {store} from "../../store";
+
+import Counter from "./Counter.vue";
+
+Vue.config.productionTip = false;
+
+new Vue({
+    store,
+    render: h => h(Counter),
+}).$mount('.counter');
+```
+
 4. Configure entry points in `webpack.config.js`.
+
+```js
+// webpack.config.js
+
+module.exports = {
+    ...
+    entry: {
+        'greeting': ['./src/js/partial/greeting/main.js'],
+        'counter': ['./src/js/partial/counter/main.js']
+    },    
+    ...
+};
+
+```
+
 5. Build your standalone JS files using one of these commands:
 
 Build mode
@@ -23,14 +117,14 @@ Build mode
 npm run build
 ```
 
-Builed watch mode
+Build watch mode
 ```js
 npm run start
 ```
 
 This will create minified js files in `dist/js` folder.
 
-6. Create view files in `views` folder and empty root selectors for your single file components.
+6. Create view files in `views` folder, empty root selectors for your single file components and connect your standalone files.
 
 ```html
 // views/index.html
@@ -56,7 +150,5 @@ This will create minified js files in `dist/js` folder.
 </body>
 </html>
 ```
-
-7. Connect your standalone files to the webpage.
 
 8. Enjoy! 🎉
