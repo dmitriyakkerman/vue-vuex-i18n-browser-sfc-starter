@@ -235,7 +235,7 @@ This will create minified js files in `dist/js` folder.
 ## Important note
 Each compiled standalone JS file includes Vue.js by default.
 
-Please, consider **removing** Vue.js import into any of your js files(especially in case you use multiple compiled SFC on the same page) and **connecting** Vue.js globally via CDN.
+Please, consider **removing** Vue.js import from any of your js files(especially in case you use multiple compiled SFC on the same page) and **connecting** Vue.js globally via CDN.
 
 This will extremely reduce the size of you compiled SFC :point_up:
 
