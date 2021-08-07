@@ -267,9 +267,7 @@ This will extremely reduce the size of you compiled SFC.
 // views/index.html
 
 <body>
-
 + <script src="https://unpkg.com/vue"></script>
-
 </body>
 </html>
 ```
