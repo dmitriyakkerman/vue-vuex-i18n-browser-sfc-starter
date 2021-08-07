@@ -17,7 +17,7 @@ npm install
 
 3. Configure your Vuex store modules in `src/js/store` folder.
 
-######"Counter" component example
+###### "Counter" component example
 
 ```js
 // src/js/store/modules/counter.js
@@ -93,7 +93,7 @@ export const i18n = new VueI18n({
 
 5. Create and configure you Vue.js single file components in `src/js/partial` folder using Vuex and I18n. 
 
-######"Greeting" component example
+###### "Greeting" component example
 
 ```js
 // src/js/partial/greeting/Greeting.vue
@@ -125,7 +125,7 @@ new Vue({
 }).$mount('.greeting');
 ```
 
-######"Counter" component example
+###### "Counter" component example
 
 ```js
 // src/js/partial/counter/Counter.vue
