@@ -26,9 +26,7 @@ npm install
 </template>
 
 <script>
-
     export default {}
-
 </script>
 ```
 
