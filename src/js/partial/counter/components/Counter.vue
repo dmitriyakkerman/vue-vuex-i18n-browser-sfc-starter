@@ -11,7 +11,7 @@
     export default {
         computed: {
             count() {
-                return this.$store.state.example.count
+                return this.$store.state.counter.count
             },
             doubleCount() {
                 return this.$store.getters.doubleCount

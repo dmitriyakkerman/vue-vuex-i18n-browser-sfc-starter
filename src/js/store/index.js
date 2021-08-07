@@ -1,12 +1,12 @@
 import Vue from "vue";
 import Vuex from 'vuex'
 
-import example from "./modules/example";
+import counter from "./modules/counter";
 
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     modules: {
-        example
+        counter
     }
 });
