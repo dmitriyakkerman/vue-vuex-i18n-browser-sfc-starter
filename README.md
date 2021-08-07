@@ -4,7 +4,7 @@
 
 Create interactive Vue.js single file components (SFC), compile them into standalone JS files and connect to your webpage :ok_hand:
 
-### Usage
+## Usage
 
 1. Clone repository 
 ```js
@@ -231,3 +231,10 @@ This will create minified js files in `dist/js` folder.
 ```
 
 9. Enjoy! 🎉
+
+## Important note
+Each compiled standalone JS file includes Vue.js by default.
+
+Please, consider **removing** Vue.js import into any of your js files(especially in case you use multiple compiled SFC on the same page) and **connecting** Vue.js globally vue CDN.
+
+This will extremely reduce the size of you compiled SFC.
