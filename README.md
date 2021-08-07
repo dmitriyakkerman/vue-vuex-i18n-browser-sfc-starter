@@ -269,10 +269,8 @@ This will extremely reduce the size of you compiled SFC :point_up:
 ```diff
 // views/index.html
 
-<body>
 ...
 + <script src="https://unpkg.com/vue"></script>
 ...
-</body>
-</html>
+
 ```
