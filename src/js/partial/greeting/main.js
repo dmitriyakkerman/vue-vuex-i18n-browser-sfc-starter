@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import {i18n} from "../../lang";
 
-import Greeting from "./components/Greeting.vue";
+import Greeting from "./Greeting.vue";
 
 Vue.config.productionTip = false;
 

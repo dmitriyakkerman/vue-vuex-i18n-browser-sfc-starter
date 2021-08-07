@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import {store} from "../../store";
 
-import Counter from "./components/Counter.vue";
+import Counter from "./Counter.vue";
 
 Vue.config.productionTip = false;
 
