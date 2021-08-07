@@ -17,7 +17,7 @@ npm install
 
 3. Configure your Vuex store modules in `src/js/store` folder.
 
-###### "Counter" component example
+###### "Counter" state example
 
 ```js
 // src/js/store/modules/counter.js
