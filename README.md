@@ -266,24 +266,9 @@ This will extremely reduce the size of you compiled SFC.
 ```diff
 // views/index.html
 
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Example</title>
-</head>
 <body>
 
-    <div class="greeting"></div>
-    <hr>
-    <div class="counter"></div>
-
-    + <script src="https://unpkg.com/vue"></script>
-    <script src="../dist/js/greeting.min.js"></script>
-    <script src="../dist/js/counter.min.js"></script>
++ <script src="https://unpkg.com/vue"></script>
 
 </body>
 </html>
