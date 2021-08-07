@@ -203,7 +203,7 @@ npm run start
 
 This will create minified js files in `dist/js` folder.
 
-8. Create view files in `views` folder, empty root selectors for your single file components and connect your compiled standalone JS files.
+8. Create view files in `views` folder, create root selectors for your single file components and connect your compiled standalone JS files.
 
 ```html
 // views/index.html
