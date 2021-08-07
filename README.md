@@ -235,6 +235,56 @@ This will create minified js files in `dist/js` folder.
 ## Important note
 Each compiled standalone JS file includes Vue.js by default.
 
-Please, consider **removing** Vue.js import into any of your js files(especially in case you use multiple compiled SFC on the same page) and **connecting** Vue.js globally vue CDN.
+Please, consider **removing** Vue.js import into any of your js files(especially in case you use multiple compiled SFC on the same page) and **connecting** Vue.js globally via CDN.
 
 This will extremely reduce the size of you compiled SFC.
+
+```diff
+// src/js/store/index.js
+
+- import Vue from "vue";
+```
+
+```diff
+// src/js/lang/index.js
+
+- import Vue from 'vue'
+```
+
+```diff
+// src/js/partial/greeting/main.js
+
+- import Vue from 'vue'
+```
+
+```diff
+// src/js/partial/counter/main.js
+
+- import Vue from 'vue'
+```
+
+```diff
+// views/index.html
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Example</title>
+</head>
+<body>
+
+    <div class="greeting"></div>
+    <hr>
+    <div class="counter"></div>
+
+    + <script src="https://unpkg.com/vue"></script>
+    <script src="../dist/js/greeting.min.js"></script>
+    <script src="../dist/js/counter.min.js"></script>
+
+</body>
+</html>
+```
