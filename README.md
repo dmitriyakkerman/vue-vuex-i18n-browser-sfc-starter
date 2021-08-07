@@ -243,18 +243,21 @@ This will extremely reduce the size of you compiled SFC :point_up:
 // src/js/store/index.js
 
 - import Vue from "vue";
+...
 ```
 
 ```diff
 // src/js/lang/index.js
 
 - import Vue from 'vue'
+...
 ```
 
 ```diff
 // src/js/partial/greeting/main.js
 
 - import Vue from 'vue'
+...
 ```
 
 ```diff
@@ -267,7 +270,9 @@ This will extremely reduce the size of you compiled SFC :point_up:
 // views/index.html
 
 <body>
+...
 + <script src="https://unpkg.com/vue"></script>
+...
 </body>
 </html>
 ```
