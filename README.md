@@ -14,10 +14,84 @@ https://github.com/dmitriyakkerman/vue-vuex-i18n-browser-sfc-starter.git
 ```js
 npm install
 ```
-3. Create and configure you Vue.js single file components in `src/js/partial` folder using Vuex and I18n. 
+
+3. Configure your Vuex store modules in `src/js/store` folder.
+```js
+// src/js/store/modules/counter.js
+
+export default {
+    state: {
+        count: 1
+    },
+    mutations: {
+        increment (state) {
+            state.count++
+        }
+    },
+    getters: {
+        doubleCount(state) {
+            return state.count * 2;
+        }
+    }
+}
+```
 
 ```js
-// partial/greeting/Greeting.vue
+// src/js/store/index.js
+
+import Vue from "vue";
+import Vuex from 'vuex'
+
+import counter from "./modules/counter";
+
+Vue.use(Vuex);
+
+export const store = new Vuex.Store({
+    modules: {
+        counter
+    }
+});
+```
+
+4. Configure your I18n localization in `src/js/lang` folder.
+
+```js
+// src/js/lang/messages.js
+
+export const messages = {
+    en: {
+        message: {
+            greeting: 'Hello world!'
+        }
+    },
+    ru: {
+        message: {
+            greeting: 'Привет, мир!'
+        }
+    }
+};
+```
+
+```js
+// src/js/lang/index.js
+
+import Vue from 'vue'
+import VueI18n from 'vue-i18n'
+
+import {messages} from "./messages";
+
+Vue.use(VueI18n);
+
+export const i18n = new VueI18n({
+    locale: 'en',
+    messages
+});
+```
+
+5. Create and configure you Vue.js single file components in `src/js/partial` folder using Vuex and I18n. 
+
+```js
+// src/js/partial/greeting/Greeting.vue
 
 <template>
     <div>
@@ -31,7 +105,7 @@ npm install
 ```
 
 ```js
-// partial/greeting/main.js
+// src/js/partial/greeting/main.js
 
 import Vue from 'vue';
 import {i18n} from "../../lang";
@@ -47,7 +121,7 @@ new Vue({
 ```
 
 ```js
-// partial/counter/Counter.vue
+// src/js/partial/counter/Counter.vue
 
 <template>
     <div>
@@ -77,7 +151,7 @@ new Vue({
 ```
 
 ```js
-// partial/counter/main.js
+// src/js/partial/counter/main.js
 
 import Vue from 'vue';
 import {store} from "../../store";
@@ -92,7 +166,7 @@ new Vue({
 }).$mount('.counter');
 ```
 
-4. Configure entry points in `webpack.config.js`.
+6. Configure entry points in `webpack.config.js`.
 
 ```js
 // webpack.config.js
@@ -108,7 +182,7 @@ module.exports = {
 
 ```
 
-5. Build your standalone JS files using one of these commands:
+7. Build your standalone JS files using one of these commands:
 
 Build mode
 ```js
@@ -122,7 +196,7 @@ npm run start
 
 This will create minified js files in `dist/js` folder.
 
-6. Create view files in `views` folder, empty root selectors for your single file components and connect your compiled standalone JS files.
+8. Create view files in `views` folder, empty root selectors for your single file components and connect your compiled standalone JS files.
 
 ```html
 // views/index.html
@@ -149,4 +223,4 @@ This will create minified js files in `dist/js` folder.
 </html>
 ```
 
-8. Enjoy! 🎉
+9. Enjoy! 🎉
