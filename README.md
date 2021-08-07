@@ -33,6 +33,8 @@ This will create minified js files in `dist/js` folder.
 6. Create view files in `views` folder and empty root selectors for your single file components.
 
 ```html
+// views/index.html
+
 <!doctype html>
 <html lang="en">
 <head>
